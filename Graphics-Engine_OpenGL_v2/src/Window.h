@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <iostream>
+#include "Time.h"
 #include "GLEW/include/GL/glew.h"
 #include "GLFW/include/glfw3.h"
 
