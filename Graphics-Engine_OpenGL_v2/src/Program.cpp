@@ -1,15 +1,15 @@
 #include "Program.h"
 
 Program::Program() {
-	Window::Get().Width(800);
-	Window::Get().Height(800);
-	Window::Get().Tittle("Window");
+	Window::Width(100);
+	Window::Height(100);
+	Window::Tittle("Window");
 }
 
 Program::Program(int width, int height, const char* tittle) {
-	Window::Get().Width(width);
-	Window::Get().Height(height);
-	Window::Get().Tittle(tittle);
+	Window::Width(width);
+	Window::Height(height);
+	Window::Tittle(tittle);
 }
 
 void Program::Run() {

@@ -33,15 +33,21 @@ void Window::Init(const char* tittle, int width, int height) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
-	winMain = glfwCreateWindow(this->width, this->height, this->tittle, NULL, NULL);
-	if (winMain == NULL) {
+	this->winMain = glfwCreateWindow(this->width, this->height, this->tittle, NULL, NULL);
+	if (this->winMain == NULL) {
 		std::cout << "Failed to create Window" << std::endl;
 		glfwTerminate();
 		exit(-1);
 	}
 
-	glfwMakeContextCurrent(winMain);
+	glfwSetCursorPosCallback(window.winMain, (GLFWcursorposfun)MouseListener::MousePositionCallBack);
+	glfwSetMouseButtonCallback(window.winMain, (GLFWmousebuttonfun)MouseListener::MouseButtonCallback);
+	glfwSetScrollCallback(window.winMain, (GLFWscrollfun)MouseListener::MouseScrollCallback);
+	glfwSetKeyCallback(window.winMain, (GLFWkeyfun)KeyListener::KeyCallback);
+
+	glfwMakeContextCurrent(this->winMain);
 
 	glViewport(0, 0, width, height);
 

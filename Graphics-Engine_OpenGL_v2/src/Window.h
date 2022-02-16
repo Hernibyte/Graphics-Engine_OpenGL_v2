@@ -3,12 +3,10 @@
 
 #include <iostream>
 #include "Time.h"
-#include "GLEW/include/GL/glew.h"
-#include "GLFW/include/glfw3.h"
+#include "KeyListener.h"
 
 class Window {
 public:
-	Window();
 	~Window();
 
 	static Window Get() { return window; }
@@ -31,6 +29,7 @@ public:
 
 	static void Clear(GLclampf r = 1, GLclampf g = 1, GLclampf b = 1, GLclampf a = 1);
 private:
+	Window();
 	void Init(const char* tittle, int width, int height);
 	void UpdateAttib();
 
